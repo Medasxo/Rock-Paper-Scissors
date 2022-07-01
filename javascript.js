@@ -42,7 +42,6 @@ function playRound(playerSelection, computerSelection){
 function game(){
     let playerScore = 0;
     let computerScore = 0;
-    for(let i = 0; i < 5; i++){
         playerSelection = prompt("Choose 1: Rock Paper Scissors");
         computerSelection = computerPlay();
         let message = playRound(playerSelection, computerSelection);
@@ -53,7 +52,6 @@ function game(){
         else if(message.includes("lose")){
             computerScore++;
         }
-    }
     if(playerScore > computerScore){
         console.log("Congratulations! You won against the computer.");
     }
@@ -65,5 +63,22 @@ function game(){
     }
 
 }
-game();
+
+
+const rockBtn = document.querySelector("#Rock");
+rockBtn.addEventListener("click", ()=>{
+    let computerSelection = computerPlay();
+    console.log(playRound('Rock', computerSelection));
+}); 
+
+const paperBtn = document.querySelector("#Paper");
+paperBtn.addEventListener("click", () =>{
+    let computerSelection = computerPlay();
+    console.log(playRound('Paper', computerSelection));
+});
+const scissorsBtn = document.querySelector("#Scissors");
+scissorsBtn.addEventListener("click", () => {
+    let computerSelection = computerPlay();
+    console.log(playRound('Scissors', computerSelection));
+});
 
