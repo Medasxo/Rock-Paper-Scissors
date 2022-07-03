@@ -1,4 +1,6 @@
 let message = '';
+let playerScore = 0;
+let computerScore = 0;
 function computerPlay() {
     let randomNumber;
     randomNumber = Math.floor(Math.random() * 3);
@@ -14,7 +16,7 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    
+
     let tempString = playerSelection.toLowerCase();
     playerSelection = playerSelection[0].toUpperCase() + tempString.slice(1);
 
@@ -42,26 +44,12 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+    playerScore = 0;
+    computerScore = 0;
     const resTab = document.querySelector("#Result");
     let result;
-    console.log("Started the game");
-    while (playerScore < 5 || computerScore < 5) {
-        
-        if(message.includes('win') == true){
-            playerScore++;
-        }
-        else if(message.includes('lose') == true){
-            computerScore++;
-        }
-        else if(message.includes('tie') == true){
-            computerScore++;
-            playerScore++;
-        }
-        result = playerScore.toString() + " " + computerScore.toString();
-        resTab.textContent = result;
-    }
+    result = "YOU: " + playerScore.toString() + " COMPUTER: " + computerScore.toString();
+    resTab.textContent = result;
     if (playerScore > computerScore) {
         console.log("Congratulations! You won against the computer.");
     }
@@ -79,7 +67,30 @@ rockBtn.addEventListener("click", () => {
     message = playRound('Rock', computerSelection);
     const currentWinner = document.querySelector("#Choose");
     currentWinner.textContent = message;
-    
+
+    const resTab = document.querySelector("#Result");
+    if (message.includes('win') == true) {
+        playerScore++;
+    }
+    else if (message.includes('lose') == true) {
+        computerScore++;
+    }
+    result = "YOU: " + playerScore.toString() + " COMPUTER: " + computerScore.toString();
+    resTab.textContent = result; 
+    if(playerScore == 5){
+        alert("YOU HAVE WON AN ENTIRE GAME AGAINST A COMPUTER!");
+        playerScore = 0;
+        computerScore = 0;
+        result = "YOU: " + playerScore.toString() + " COMPUTER: " + computerScore.toString();
+        resTab.textContent = result; 
+    }
+    else if(computerScore === 5){
+        alert("Sorry to say this, but you have lost against a computer :(");
+        playerScore = 0;
+        computerScore = 0;
+        result = "YOU: " + playerScore.toString() + " COMPUTER: " + computerScore.toString();
+        resTab.textContent = result; 
+    }
 });
 
 const paperBtn = document.querySelector("#Paper");
@@ -88,6 +99,30 @@ paperBtn.addEventListener("click", () => {
     message = playRound('Paper', computerSelection);
     const currentWinner = document.querySelector("#Choose");
     currentWinner.textContent = message;
+
+    const resTab = document.querySelector("#Result");
+    if (message.includes('win') == true) {
+        playerScore++;
+    }
+    else if (message.includes('lose') == true) {
+        computerScore++;
+    }
+    result = "YOU: " + playerScore.toString() + " COMPUTER: " + computerScore.toString();
+    resTab.textContent = result; 
+    if(playerScore == 5){
+        alert("YOU HAVE WON AN ENTIRE GAME AGAINST A COMPUTER!");
+        playerScore = 0;
+        computerScore = 0;
+        result = "YOU: " + playerScore.toString() + " COMPUTER: " + computerScore.toString();
+        resTab.textContent = result; 
+    }
+    else if(computerScore === 5){
+        alert("Sorry to say this, but you have lost against a computer :(");
+        playerScore = 0;
+        computerScore = 0;
+        result = "YOU: " + playerScore.toString() + " COMPUTER: " + computerScore.toString();
+        resTab.textContent = result; 
+    }
 });
 const scissorsBtn = document.querySelector("#Scissors");
 scissorsBtn.addEventListener("click", () => {
@@ -95,6 +130,30 @@ scissorsBtn.addEventListener("click", () => {
     message = playRound('Scissors', computerSelection);
     const currentWinner = document.querySelector("#Choose");
     currentWinner.textContent = message;
+
+    const resTab = document.querySelector("#Result");
+    if (message.includes('win') == true) {
+        playerScore++;
+    }
+    else if (message.includes('lose') == true) {
+        computerScore++;
+    }
+    result = "YOU: " + playerScore.toString() + " COMPUTER: " + computerScore.toString();
+    resTab.textContent = result; 
+    if(playerScore == 5){
+        alert("YOU HAVE WON AN ENTIRE GAME AGAINST A COMPUTER!");
+        playerScore = 0;
+        computerScore = 0;
+        result = "YOU: " + playerScore.toString() + " COMPUTER: " + computerScore.toString();
+        resTab.textContent = result; 
+    }
+    else if(computerScore === 5){
+        alert("Sorry to say this, but you have lost against a computer :(");
+        playerScore = 0;
+        computerScore = 0;
+        result = "YOU: " + playerScore.toString() + " COMPUTER: " + computerScore.toString();
+        resTab.textContent = result; 
+    }
 });
 
 const startBtn = document.querySelector("#Start");
